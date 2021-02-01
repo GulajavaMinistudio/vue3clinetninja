@@ -1,7 +1,13 @@
-# vue-modal-learn
+# Vue Modal Learn Vue CLI
 
+Latihan dari course Udemy Net Ninja tentang penggunaan Vue CLI
+
+[Github Repo Sources](https://github.com/iamshaunjp/Vue-3-Firebase)
+
+[Vue Udemy Course](https://www.udemy.com/course/build-web-apps-with-vuejs-firebase/)
 ## Project setup
-```
+
+
 npm install
 ```
 
