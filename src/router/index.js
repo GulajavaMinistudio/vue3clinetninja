@@ -10,11 +10,18 @@ const AboutPage = () => import(/* webpackChunkName: "about" */ '../views/About.v
 const LatihanSatu = () =>
     import(/* webpackChunkName: "latihan-satu" */ '../views/tutorpage/LatihanVueSatu.vue');
 
+const ModalDemo = () => import('../views/tutorpage/ModalDemo.vue');
+
 const routes = [
     {
         path: '/',
         name: 'LatihanSatu',
         component: LatihanSatu,
+    },
+    {
+        path: '/modaldemo',
+        name: 'ModalDemo',
+        component: ModalDemo,
     },
     {
         path: '/home',

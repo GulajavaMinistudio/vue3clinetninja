@@ -1,5 +1,4 @@
 <template>
-    <view-modal></view-modal>
     <h1>Multi Component Root App</h1>
     <h2>{{ judul }}</h2>
     <div>
@@ -15,13 +14,8 @@
 </template>
 
 <script>
-import ViewModal from '../../components/ViewModal.vue';
-
 export default {
     name: 'LatihanVueSatu',
-    components: {
-        'view-modal': ViewModal,
-    },
     data() {
         return {
             judul: 'Judul dari Vue Component',
