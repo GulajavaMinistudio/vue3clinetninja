@@ -1,8 +1,9 @@
 <template>
     <div class="backdrop">
         <div class="modal">
-            <h1>Modal Title</h1>
+            <h1>Modal Title {{ judulModal }}</h1>
             <p>Modal Content</p>
+            <p>{{ contentModal }}</p>
             <p>Isi dari dialog modal yang muncul di halaman</p>
         </div>
     </div>
@@ -11,6 +12,38 @@
 <script>
 export default {
     name: 'ViewModal',
+    props: {
+        juduls: {
+            type: String,
+            default: '',
+        },
+        contents: {
+            type: String,
+            default: '',
+        },
+    },
+    data() {
+        return {
+            judulModal: '',
+            contentModal: '',
+        };
+    },
+    mounted() {
+        this.judulModal = this.juduls;
+        this.contentModal = this.contents;
+    },
+    watch: {
+        juduls(newValue) {
+            if (newValue) {
+                this.judulModal = newValue;
+            }
+        },
+        contents(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                this.contentModal = newValue;
+            }
+        },
+    },
 };
 </script>
 

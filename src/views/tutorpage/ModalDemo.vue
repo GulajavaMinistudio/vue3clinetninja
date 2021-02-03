@@ -1,6 +1,6 @@
 <template>
     <h1>{{ judul }}</h1>
-    <view-modal />
+    <view-modal juduls="props: Artikel dari Main Comonpent" contents="props: Content artikel" />
 </template>
 
 <script>
