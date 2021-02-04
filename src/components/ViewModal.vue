@@ -1,10 +1,11 @@
 <template>
-    <div class="backdrop">
-        <div class="modal">
-            <h1>Modal Title {{ judulModal }}</h1>
-            <p>Modal Content</p>
+    <div class="backdrop" @click="closeModal()">
+        <div class="modal" :class="classModal">
+            <!-- <h1>Modal Title {{ judulModal }}</h1> -->
+            <h1>{{ judulModal }}</h1>
+            <!-- <p>Modal Content</p> -->
             <p>{{ contentModal }}</p>
-            <p>Isi dari dialog modal yang muncul di halaman</p>
+            <!-- <p>Isi dari dialog modal yang muncul di halaman</p> -->
         </div>
     </div>
 </template>
@@ -21,16 +22,40 @@ export default {
             type: String,
             default: '',
         },
+        theme: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
             judulModal: '',
             contentModal: '',
+            isSaleTheme: false,
         };
     },
     mounted() {
         this.judulModal = this.juduls;
         this.contentModal = this.contents;
+
+        if (this.theme === 'sale') {
+            this.isSaleTheme = true;
+        } else {
+            this.isSaleTheme = false;
+        }
+    },
+    methods: {
+        closeModal() {
+            this.$emit('close-event', { data: 'Sampel data' });
+        },
+    },
+    computed: {
+        classModal() {
+            // Class binding dengan menggunakan computed property
+            return {
+                sale: this.isSaleTheme === true,
+            };
+        },
     },
     watch: {
         juduls(newValue) {
@@ -66,14 +91,23 @@ export default {
     margin-left: 0em;
 }
 
-h1 {
+.modal h1 {
     color: #03cfb4;
     border: none;
     padding: 0;
 }
 
 .modal p {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+
+.modal.sale {
+    background: crimson;
+    color: white;
+}
+
+.modal.sale h1 {
+    color: white;
 }
 </style>

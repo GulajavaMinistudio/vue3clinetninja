@@ -1,6 +1,17 @@
 <template>
     <h1>{{ judul }}</h1>
-    <view-modal juduls="props: Artikel dari Main Comonpent" contents="props: Content artikel" />
+    <p>Selamat Datang...</p>
+    <div v-if="isShowModal">
+        <view-modal
+            :juduls="judul"
+            :contents="content"
+            theme="sale"
+            @close-event="closeModalEvent()"
+        />
+    </div>
+    <div>
+        <button @click="toggleShowModal()">Open Dialog Modal</button>
+    </div>
 </template>
 
 <script>
@@ -13,8 +24,27 @@ export default {
     },
     data() {
         return {
-            judul: 'Demo Modal Dialog Vue',
+            judul: 'Daftarkan Diri Anda Segera',
+            content: 'Untuk mendapatkan hadiah tapi ga jadi',
+            isShowModal: false,
         };
+    },
+    methods: {
+        kirimPropsDataModal() {
+            this.judul = 'Judul modal berganti';
+            this.content = 'Konten modal berganti';
+        },
+        toggleShowModal() {
+            this.isShowModal = !this.isShowModal;
+        },
+        closeModalEvent() {
+            this.isShowModal = false;
+        },
+    },
+    mounted() {
+        // setTimeout(() => {
+        //     this.kirimPropsDataModal();
+        // }, 5000);
     },
 };
 </script>
