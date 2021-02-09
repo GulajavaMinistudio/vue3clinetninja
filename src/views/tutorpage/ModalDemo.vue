@@ -2,15 +2,14 @@
     <h1>{{ judul }}</h1>
     <p>Selamat Datang...</p>
     <div v-if="isShowModal">
-        <view-modal
-            :juduls="judul"
-            :contents="content"
-            theme="sale"
-            @close-event="closeModalEvent()"
-        />
+        <!-- Contoh penggunaan Slots -->
+        <view-modal :juduls="judul" :contents="content" theme="sale" @close-event="closeModalEvent">
+            <h1>Kucing Giveaway</h1>
+            <p>Dapatkan diskon sebesar 50%</p>
+        </view-modal>
     </div>
     <div>
-        <button @click="toggleShowModal()">Open Dialog Modal</button>
+        <button @click.ctrl="toggleShowModal()">Open Dialog Modal (Ctrl)</button>
     </div>
 </template>
 
@@ -37,7 +36,9 @@ export default {
         toggleShowModal() {
             this.isShowModal = !this.isShowModal;
         },
-        closeModalEvent() {
+        closeModalEvent(data) {
+            // Menerima data event dari child compopnent
+            console.log(data);
             this.isShowModal = false;
         },
     },

@@ -1,5 +1,6 @@
 <template>
-    <div class="backdrop" @click="closeModal()">
+    <!-- Self mencegah element lain yang di klik ikut memberikan aksi  -->
+    <div class="backdrop" @click.self="closeModal()">
         <div class="modal" :class="classModal">
             <!-- <h1>Modal Title {{ judulModal }}</h1> -->
             <h1>{{ judulModal }}</h1>
