@@ -12,6 +12,8 @@ const LatihanSatu = () =>
 
 const ModalDemo = () => import('../views/tutorpage/ModalDemo.vue');
 
+const SlotDemo = () => import('../views/slotpage/ModalSlotDemo.vue');
+
 const routes = [
     {
         path: '/',
@@ -22,6 +24,11 @@ const routes = [
         path: '/modaldemo',
         name: 'ModalDemo',
         component: ModalDemo,
+    },
+    {
+        path: '/slotdemo',
+        name: 'SlotDemo',
+        component: SlotDemo,
     },
     {
         path: '/home',
