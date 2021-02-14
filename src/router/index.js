@@ -40,6 +40,11 @@ const routes = [
         name: 'About',
         component: AboutPage,
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        redirect: { name: 'LatihanSatu' },
+    },
 ];
 
 const router = createRouter({
