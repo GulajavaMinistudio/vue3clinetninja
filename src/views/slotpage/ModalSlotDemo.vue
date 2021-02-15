@@ -3,9 +3,14 @@
     <p>Selamat Datang...</p>
     <div v-if="isShowModal">
         <!-- Contoh penggunaan Slots -->
-        <view-modal :juduls="judul" :contents="content" theme="sale" @close-event="closeModalEvent">
+        <view-modal :juduls="judul" :contents="content" theme="" @close-event="closeModalEvent">
             <h1>Kucing Giveaway</h1>
             <p>Dapatkan diskon sebesar 50%</p>
+            <!-- Dengan menggunakan named slots -->
+            <template v-slot:links>
+                <a href="#">Daftarkan Sekarang</a>
+                <a href="#">Info lebih lanjut</a>
+            </template>
         </view-modal>
     </div>
     <div>
@@ -14,7 +19,10 @@
 </template>
 
 <script>
-const ViewModal = () => import('../../components/SlotsModals.vue');
+import { defineAsyncComponent } from 'vue';
+
+// Cara async Component di Vue 3
+const ViewModal = defineAsyncComponent(() => import('../../components/SlotsModals.vue'));
 
 export default {
     name: 'ModalSlotDemo',
@@ -37,7 +45,7 @@ export default {
             this.isShowModal = !this.isShowModal;
         },
         closeModalEvent(data) {
-            // Menerima data event dari child compopnent
+            // Menerima data event dari child component
             console.log(data);
             this.isShowModal = false;
         },

@@ -2,11 +2,12 @@
     <!-- Self mencegah element lain yang di klik ikut memberikan aksi  -->
     <div class="backdrop" @click.self="closeModal()">
         <div class="modal" :class="classModal">
-            <!-- <h1>Modal Title {{ judulModal }}</h1> -->
-            <h1>{{ judulModal }}</h1>
-            <!-- <p>Modal Content</p> -->
-            <p>{{ contentModal }}</p>
-            <!-- <p>Isi dari dialog modal yang muncul di halaman</p> -->
+            <!-- Tampilan untuk Slot  -->
+            <slot>Default content</slot>
+            <div class="actions">
+                <!-- Dengan named slots -->
+                <slot name="links"></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -73,7 +74,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // Scoped Style untuk mencegah style terpakai di komponen
 // Di luar dari komponen ini dan anak komponen yang ada di dalamnya
 .modal {
@@ -103,12 +104,35 @@ export default {
     font-weight: bold;
 }
 
+.modal .actions {
+    text-align: center;
+    margin: 30px 0 10px 0;
+    color: #333;
+}
+
+.modal .actions a {
+    color: #333;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px;
+}
+
 .modal.sale {
     background: crimson;
     color: white;
 }
 
 .modal.sale h1 {
+    color: white;
+}
+
+.modal.sale .actions {
+    color: white;
+}
+
+.modal.sale .actions a {
     color: white;
 }
 </style>
