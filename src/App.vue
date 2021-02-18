@@ -7,7 +7,8 @@
 </template>
 
 <style lang="scss">
-#app {
+#app,
+#modalteleport {
     width: 100%;
     text-align: center;
     -webkit-font-smoothing: antialiased;
