@@ -51,8 +51,7 @@ export default {
             this.$emit('close-event', { data: 'Sampel data' });
         },
         sortNumber() {
-            //
-            const num = [1, 4, 2, 3];
+            const num = [0, 1, 4, 2, 3];
             const numObject = num.map((value, index) => ({ value, index }));
             numObject.sort((valA, valB) => valA.value - valB.value);
         },
