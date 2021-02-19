@@ -100,6 +100,9 @@ export default {
     props: {
         msg: String,
     },
+    methods: {
+        kalkulasi() {},
+    },
 };
 </script>
 
